@@ -25,7 +25,6 @@
 
 > ⭐ **Diferenciais que você vai encontrar neste projeto:**
 > - ✅ Código **limpo, modular e documentado** (padrões de mercado)
-> - ✅ **CI/CD completo** com GitHub Actions (automação profissional)
 > - ✅ **Testes unitários** com Jest (+85% de cobertura)
 > - ✅ **Boas práticas** de QA e Engenharia de Software
 > - ✅ **Projeto pronto para produção** (escalável e mantível)
