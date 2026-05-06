@@ -1,0 +1,31 @@
+{
+  "name": "gerador-massa-dados-qa",
+  "version": "1.0.0",
+  "description": "Gerador de massa de dados para testes de QA",
+  "main": "scripts/runGeneration.js",
+  "scripts": {
+    "start": "node scripts/runGeneration.js",
+    "test": "jest",
+    "dev": "nodemon scripts/runGeneration.js",
+    "clean": "rm -rf data/output/*"
+  },
+  "keywords": [
+    "qa",
+    "testing",
+    "data-generator",
+    "faker"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^8.0.0",
+    "axios": "^1.16.0",
+    "dotenv": "^16.0.0",
+    "yaml": "^2.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "axios": "^1.0.0",
+    "nodemon": "^3.0.0"
+  }
+}

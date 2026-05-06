@@ -1,0 +1,10 @@
+{
+  "default": {
+    "outputFormats": ["json", "csv"],
+    "locale": "pt_BR",
+    "usersQty": 10,
+    "productsQty": 20,
+    "ordersQty": 30,
+    "seed": 42
+  }
+}
