@@ -42,64 +42,40 @@
 - [📊 Formatos de Saída](#-formatos-de-saída)
 - [🧪 Testes de API com Jest](#-testes-de-api-com-jest)
 - [📬 Postman Collection e Environment](#-postman-collection-e-environment)
-- [🤝 Contribuição](#-contribuição)
-- [📄 Licença](#-licença)
+
 
 ---
-
-## 📌 **Sobre o Projeto**
-
-Este projeto combina um **gerador de massa de dados** para testes de QA com um conjunto de **testes de API** para o serviço [JSONPlaceholder](https://jsonplaceholder.typicode.com/), utilizando [Postman](https://www.postman.com/) para orquestração e [Jest](https://jestjs.io/) para automação dos testes em JavaScript.
-
-### 🎯 Visão Geral
-
-O objetivo principal é demonstrar como integrar a geração de dados de teste com a execução de testes de API, garantindo que os dados utilizados nos testes sejam dinâmicos e realistas. O projeto é estruturado para ser facilmente compreendido e adaptado, seguindo as melhores práticas para desenvolvimento e versionamento no GitHub.
-
-### 📂 Estrutura do Projeto
-
----
-
 ## 🎬 **Demo Rápida**
+
 
 ```bash
 # Clone e execute em 30 segundos
 git clone https://github.com/paulo-qa-tests/qa-automation-data-generator
-cd qa-automation-data-generator
+cd qa-automation-data-generato
 npm install
 npm start
 
-🚀 Starting data generation...
-📊 Configuration: 10 users, 20 products
-✅ Generated 10 users (10 valid)
-✅ Generated 20 products (20 valid)
-💾 Data exported to JSON, CSV, SQL
-✨ Data generation completed!
 
-✨ Funcionalidades
-Funcionalidade	Descrição
-🧑 Gerador de Usuários	Cria dados realistas de usuários (nome, email, endereço, telefone)
-📦 Gerador de Produtos	Gera produtos com nome, preço, descrição e categorias variadas
-📄 Múltiplos Formatos	Exporta dados em JSON, CSV e SQL simultaneamente
-🌐 Localização PT-BR	Dados gerados no padrão brasileiro (CPF, telefone, endereços)
-🔁 Reprodutibilidade	Suporte a seed para geração consistente de dados
-🧪 Testes Automatizados	Suite completa de testes com Jest
-📬 Postman Integration	Collection pronta para testes manuais de API
 
-🛠️ Stack Tecnológica
-<div align="center">
-Tecnologia	Finalidade
-https://img.shields.io/badge/Node.js-18.x-339933?style=flat-square&logo=node.js&logoColor=white	Runtime JavaScript
-https://img.shields.io/badge/Jest-24.x-C21325?style=flat-square&logo=jest&logoColor=white	Testes unitários e de API
-https://img.shields.io/badge/Axios-1.6.x-5A29E4?style=flat-square&logo=axios&logoColor=white	Requisições HTTP
-https://img.shields.io/badge/Faker.js-8.x-00B4D8?style=flat-square&logo=faker&logoColor=white	Geração de dados fictícios
-https://img.shields.io/badge/Postman-Collection-FF6C37?style=flat-square&logo=postman&logoColor=white	Testes manuais de API
-https://img.shields.io/badge/GitHub_Actions-CI/CD-2088FF?style=flat-square&logo=github-actions&logoColor=white	Integração contínua
-</div>
+# 🎉 Saída esperada:
+# 🚀 Starting data generation...
+# 📊 Configuration: 10 users, 20 products
+# ✅ Generated 10 users (10 valid)
+# ✅ Generated 20 products (20 valid)
+# 💾 Data exported to JSON, CSV, SQL
+# ✨ Data generation completed!
+
+
 🚀 Começando
 📋 Pré-requisitos
+bash
+
 ✅ Node.js 18+ instalado
 ✅ npm 9+ instalado
 ✅ Git (opcional, para clonar)
+
+🔧 Instalação
+bash
 
 # 1️⃣ Clone o repositório
 git clone https://github.com/paulo-qa-tests/qa-automation-data-generator
@@ -117,20 +93,27 @@ cp .env.example .env
 npm start
 
 💻 Como Usar
+🎮 Comandos disponíveis
+bash
+
 npm start              # Gera massa de dados padrão
-npm test               # Executa testes unitários e de API
+npm test               # Executa testes unitários
 npm run clean          # Limpa dados gerados
 npm run validate       # Valida integridade dos dados
 
 🔧 Configuração customizada
+
+Edite config/settings.json:
+json
+
 {
   "default": {
-    "outputFormats": ["json", "csv", "sql"],
-    "locale": "pt_BR",
-    "usersQty": 100,
-    "productsQty": 500,
-    "ordersQty": 200,
-    "seed": 42
+    "outputFormats": ["json", "csv", "sql"],  // Formatos desejados
+    "locale": "pt_BR",                        // Idioma dos dados
+    "usersQty": 100,                          // Quantidade de usuários
+    "productsQty": 500,                       // Quantidade de produtos
+    "ordersQty": 200,                         // Quantidade de pedidos
+    "seed": 42                                // Reprodutibilidade
   }
 }
 
@@ -157,71 +140,134 @@ sql
 INSERT INTO users (id, name, email, created_at) 
 VALUES (4521, 'Ana Silva', 'ana.silva@example.com', '2024-01-15 10:30:00');
 
-🧪 Testes de API com Jest
-Executando os Testes
-bash
+# Gerador de Massa de Dados QA & Testes de API
 
-# Rodar todos os testes
+Este projeto combina um **gerador de massa de dados** para testes de QA com um conjunto de **testes de API** para o serviço [JSONPlaceholder](https://jsonplaceholder.typicode.com/), utilizando [Postman](https://www.postman.com/) para orquestração e [Jest](https://jestjs.io/) para automação dos testes em JavaScript.
+
+## 🚀 Visão Geral
+
+O objetivo principal é demonstrar como integrar a geração de dados de teste com a execução de testes de API, garantindo que os dados utilizados nos testes sejam dinâmicos e realistas. O projeto é estruturado para ser facilmente compreendido e adaptado, seguindo as melhores práticas para desenvolvimento e versionamento no GitHub.
+
+### Estrutura do Projeto
+
+```
+. (raiz do projeto)
+├── config/
+│   └── settings.json
+├── generators/
+│   ├── productGenerator.js
+│   └── userGenerator.js
+├── postman/
+│   ├── JSONPlaceholder_Collection.json
+│   └── JSONPlaceholder_Environment.json
+├── scripts/
+│   └── runGeneration.js
+├── tests/
+│   ├── api/
+│   │   ├── integration.test.js
+│   │   └── jsonplaceholder.test.js
+│   └── generators.test.js
+├── utils/
+│   ├── fileExporter.js
+│   └── validators.js
+├── .env.example
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+## 🛠️ Configuração e Instalação
+
+Para configurar e rodar o projeto localmente, siga os passos abaixo:
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/paulo-qa-tests/qa-automation-data-generator
+    cd qa-automation-data-generator
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+3.  **Variáveis de Ambiente:**
+    Crie um arquivo `.env` na raiz do projeto, baseado no `.env.example`. Embora este projeto não utilize variáveis de ambiente sensíveis para os testes de API com JSONPlaceholder, é uma boa prática manter o arquivo para futuras expansões.
+    ```dotenv
+    # Exemplo de .env
+    # API_KEY=sua_chave_de_api_aqui
+    ```
+
+## ⚙️ Gerador de Massa de Dados
+
+O gerador de massa de dados utiliza a biblioteca `faker-js` para criar dados realistas de usuários e produtos. Você pode executá-lo para gerar arquivos de dados para seus testes.
+
+### Como Gerar Dados
+
+Para gerar dados, execute o script principal:
+
+```bash
+npm start
+```
+
+Este comando irá gerar arquivos de saída na pasta `data/output/` (se configurado no `settings.json`).
+
+## 🧪 Testes de API com Jest
+
+Os testes de API são escritos em JavaScript usando a estrutura de testes [Jest](https://jestjs.io/) e a biblioteca [Axios](https://axios-http.com/) para fazer as requisições HTTP.
+
+### Executando os Testes
+
+Para rodar todos os testes de API e de geradores, utilize o comando:
+
+```bash
 npm test
+```
 
-# Rodar testes específicos
-npm test -- tests/api/jsonplaceholder.test.js
-npm test -- tests/generators.test.js
+Os resultados dos testes serão exibidos no console.
 
-# Rodar com coverage
-npm test -- --coverage
+### Testes de API Específicos
 
-📝 Testes Implementados
-Arquivo	Descrição
-jsonplaceholder.test.js	Testes unitários para endpoints /posts e /users
-integration.test.js	Integração do gerador de dados com testes de API
-generators.test.js	Testes dos geradores de massa de dados
-📬 Postman Collection e Environment
-Importando para o Postman
+-   **`tests/api/jsonplaceholder.test.js`**: Contém testes unitários para os principais endpoints do JSONPlaceholder (`/posts`, `/users`), verificando status codes, estrutura da resposta e operações CRUD básicas.
+-   **`tests/api/integration.test.js`**: Demonstra a integração do gerador de massa de dados com os testes de API. Ele gera dados de usuários dinamicamente e os utiliza para criar novos recursos na API do JSONPlaceholder, validando a funcionalidade de ponta a ponta.
 
-    Abra o Postman
+## 📬 Postman Collection e Environment
 
-    Clique em File > Import
+Para facilitar a execução manual e a depuração dos testes de API, fornecemos uma Postman Collection e um Environment pré-configurados.
 
-    Selecione os arquivos na pasta postman/:
+### Importando para o Postman
 
-        JSONPlaceholder_Collection.json
+1.  Abra o Postman.
+2.  Clique em `File > Import`.
+3.  Selecione os arquivos `JSONPlaceholder_Collection.json` e `JSONPlaceholder_Environment.json` localizados na pasta `postman/` do projeto.
+4.  Após a importação, selecione o ambiente `JSONPlaceholder - Dev` no seletor de ambientes do Postman.
 
-        JSONPlaceholder_Environment.json
+### Conteúdo da Collection
 
-    Selecione o ambiente JSONPlaceholder - Dev
+-   **`JSONPlaceholder API Tests`**: Coleção principal contendo requisições para os endpoints de `Posts` e `Users`.
+    -   **Posts**
+        -   `Get All Posts`: Retorna todos os posts.
+        -   `Create Post`: Cria um novo post (exemplo de requisição POST).
+    -   **Users**
+        -   `Get User by ID`: Retorna um usuário específico por ID.
 
-📋 Endpoints da Collection
-Categoria	Endpoint	Método	Descrição
-Posts	/posts	GET	Retorna todos os posts
-	/posts	POST	Cria um novo post
-Users	/users/{id}	GET	Retorna usuário por ID
-🤝 Contribuição
+Cada requisição na coleção inclui testes básicos na aba `Tests` do Postman para validar as respostas da API.
 
-Sinta-se à vontade para contribuir com este projeto!
-bash
+## 🤝 Contribuição
 
-# 1. Faça o fork
-# 2. Crie sua branch
-git checkout -b feature/minha-feature
+Sinta-se à vontade para contribuir com este projeto. Para isso, siga os passos:
 
-# 3. Commit suas mudanças
-git commit -m 'feat: Adiciona nova funcionalidade'
+1.  Faça um fork do repositório.
+2.  Crie uma nova branch (`git checkout -b feature/sua-feature`).
+3.  Faça suas alterações e adicione testes, se necessário.
+4.  Commit suas mudanças (`git commit -m 'feat: Adiciona nova funcionalidade'`).
+5.  Envie para a branch (`git push origin feature/sua-feature`).
+6.  Abra um Pull Request.
 
-# 4. Push para a branch
-git push origin feature/minha-feature
+## 📄 Licença
 
-# 5. Abra um Pull Request
+Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
-📄 Licença
+---
 
-Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-<div align="center">
-
-Desenvolvido por Paulo Henrique 💜
-
-https://img.shields.io/badge/GitHub-paulo--qa--tests-181717?style=for-the-badge&logo=github
-https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin
-
-⭐ Se este projeto foi útil para você, considere dar uma estrela! ⭐
-</div> ```
+**Desenvolvido por Paulo Henrique em colaboração com Manus AI**
