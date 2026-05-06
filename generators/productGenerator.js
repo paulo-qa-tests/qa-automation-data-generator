@@ -93,7 +93,7 @@ class ProductGenerator {
         stock: this.faker.number.int({ min: 0, max: 500 }),
         
         // Avaliacao de 0 a 5 estrelas com 1 casa decimal
-        rating: this.faker.number.float({ min: 0, max: 5, precision: 0.1 }),
+        rating: this.faker.number.float({ min: 0, max: 5, multipleOf: 0.1 }),
         
         // Status de disponibilidade (true/false aleatorio)
         isAvailable: this.faker.datatype.boolean(),
@@ -109,3 +109,4 @@ class ProductGenerator {
 
 // Exporta a classe para uso em outros modulos
 module.exports = ProductGenerator;
+
